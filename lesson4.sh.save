@@ -1,0 +1,16 @@
+#!/bin/bash
+
+NAME="Bablu Kumar"
+# IP Address
+IP=`ifconfig | grep 'broadcast' | awk '{print $2}'`
+# Interface 
+INTFCE=`ifconfig | grep 'enp' | awk '{print $1}' | cut -d ':' -f1`
+# Checking connectivity with Google
+FASTEST_CONN=`ping google.com -c 10 | grep 'time=' | awk '{print $8}' | cut -d "=" -f2 | sort | head -n 1`
+cat ping | grep 'time=' | awk '{print $8}' | cut -d "=" -f2 | sort | head -n 1
+clear
+
+echo "Name:" $NAME
+echo "IP:" $IP
+echo "Interface:" $INTFCE
+
